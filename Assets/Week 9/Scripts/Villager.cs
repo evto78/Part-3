@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -12,6 +13,9 @@ public class Villager : MonoBehaviour
     bool clickingOnSelf;
     bool isSelected;
     public GameObject highlight;
+
+
+    public TextMeshProUGUI selectionText;
 
     protected Vector2 destination;
     Vector2 movement;
@@ -98,6 +102,12 @@ public class Villager : MonoBehaviour
     public virtual ChestType CanOpen()
     {
         return ChestType.Villager;
+    }
+
+    public virtual String GetName()
+    {
+        selectionText.text = "Villager";
+        return "Villager";
     }
 
     protected virtual void Dash()

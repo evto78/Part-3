@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,5 +18,11 @@ public class Archer : Villager
     public override ChestType CanOpen()
     {
         return ChestType.Archer;
+    }
+
+    public override String GetName()
+    {
+        selectionText.text = "Archer";
+        return "Archer";
     }
 }

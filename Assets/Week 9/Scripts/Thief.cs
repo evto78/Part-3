@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,5 +22,11 @@ public class Thief : Villager
     {
         return ChestType.Thief;
 
+    }
+
+    public override String GetName()
+    {
+        selectionText.text = "Thief";
+        return "Thief";
     }
 }
