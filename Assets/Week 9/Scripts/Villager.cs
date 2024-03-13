@@ -15,7 +15,7 @@ public class Villager : MonoBehaviour
 
     protected Vector2 destination;
     Vector2 movement;
-    float speed = 3;
+    protected float speed = 3;
 
     void Start()
     {
@@ -62,6 +62,15 @@ public class Villager : MonoBehaviour
         }
 
         rb.MovePosition(rb.position + movement.normalized * speed * Time.deltaTime);
+        if (speed > 3f)
+        {
+            speed -= 10 * Time.deltaTime;
+        }
+        else if (speed < 3f)
+        {
+            speed = 3f;
+            destination = transform.position;
+        }
     }
 
     void Update()
@@ -89,5 +98,10 @@ public class Villager : MonoBehaviour
     public virtual ChestType CanOpen()
     {
         return ChestType.Villager;
+    }
+
+    protected virtual void Dash()
+    {
+        destination = Camera.main.ScreenToWorldPoint(Input.mousePosition);
     }
 }
