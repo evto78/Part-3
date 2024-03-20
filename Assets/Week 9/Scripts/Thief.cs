@@ -11,9 +11,7 @@ public class Thief : Villager
 
     protected override void Attack()
     {
-        speed = 6;
         base.Attack();
-        Dash();
         Instantiate(daggerPrefab, spawnPoint1.position, spawnPoint1.rotation);
         Instantiate(daggerPrefab, spawnPoint2.position, spawnPoint2.rotation);
     }

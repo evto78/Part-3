@@ -66,15 +66,6 @@ public class Villager : MonoBehaviour
         }
 
         rb.MovePosition(rb.position + movement.normalized * speed * Time.deltaTime);
-        if (speed > 3f)
-        {
-            speed -= 10 * Time.deltaTime;
-        }
-        else if (speed < 3f)
-        {
-            speed = 3f;
-            destination = transform.position;
-        }
     }
 
     void Update()
@@ -108,10 +99,5 @@ public class Villager : MonoBehaviour
     {
         selectionText.text = "Villager";
         return "Villager";
-    }
-
-    protected virtual void Dash()
-    {
-        destination = Camera.main.ScreenToWorldPoint(Input.mousePosition);
     }
 }
