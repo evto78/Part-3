@@ -1,7 +1,5 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -13,9 +11,6 @@ public class Villager : MonoBehaviour
     bool clickingOnSelf;
     bool isSelected;
     public GameObject highlight;
-
-
-    public TextMeshProUGUI selectionText;
 
     protected Vector2 destination;
     Vector2 movement;
@@ -63,12 +58,13 @@ public class Villager : MonoBehaviour
         if (movement.magnitude < 0.1)
         {
             movement = Vector2.zero;
+            speed = 3;
         }
 
         rb.MovePosition(rb.position + movement.normalized * speed * Time.deltaTime);
     }
 
-    void Update()
+    protected virtual void Update()
     {
         //left click: move to the click location
         if (Input.GetMouseButtonDown(0) && isSelected && !clickingOnSelf)
@@ -93,11 +89,5 @@ public class Villager : MonoBehaviour
     public virtual ChestType CanOpen()
     {
         return ChestType.Villager;
-    }
-
-    public virtual String GetName()
-    {
-        selectionText.text = "Villager";
-        return "Villager";
     }
 }
