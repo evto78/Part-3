@@ -54,7 +54,7 @@ public class Turret : MonoBehaviour
     {
         if (shooting)
         {
-            heat += 1000 * Time.deltaTime;
+            heat += 3;
         }
         else
         {
@@ -81,7 +81,19 @@ public class Turret : MonoBehaviour
 
     void Shoot()
     {
+        xp += 1;
+
         Instantiate(bullet, firePoint0.transform.position, firePoint0.transform.rotation);
+        if (xp >= 50)
+        {
+            Instantiate(bullet, firePointP1.transform.position, firePointP1.transform.rotation);
+            Instantiate(bullet, firePointN1.transform.position, firePointN1.transform.rotation);
+        }
+        if (xp >= 100)
+        {
+            Instantiate(bullet, firePointP2.transform.position, firePointP2.transform.rotation);
+            Instantiate(bullet, firePointN2.transform.position, firePointN2.transform.rotation);
+        }
     }
 
     void LookAtCursor()
