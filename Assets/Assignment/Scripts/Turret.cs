@@ -6,15 +6,18 @@ using UnityEngine.UI;
 public class Turret : MonoBehaviour
 {
     bool shooting = false;
+    bool heatStun = false;
 
     float heat = 0.0f;
     float firerate = 0.2f;
-    float cooldown = 0;
+    float cooldown = 0f;
 
-    int hp = 0;
+    int hp = 5;
     int xp = 0;
 
     Rigidbody2D rb;
+
+    public Slider heatSlider;
 
     public GameObject bullet;
 
@@ -30,7 +33,7 @@ public class Turret : MonoBehaviour
     void Update()
     {
         LookAtCursor();
-        if (Input.GetMouseButton(0) && !shooting && cooldown <= 0)
+        if (Input.GetMouseButton(0) && !shooting && cooldown <= 0 && !heatStun)
         {
             shooting = true;
             cooldown = firerate;
@@ -42,7 +45,38 @@ public class Turret : MonoBehaviour
             cooldown = 0;
         }
 
+        HeatChange();
+
         shooting = false;
+    }
+
+    void HeatChange()
+    {
+        if (shooting)
+        {
+            heat += 1000 * Time.deltaTime;
+        }
+        else
+        {
+            heat -= 10 * Time.deltaTime;
+        }
+
+        if (heat >= 100)
+        {
+            heatStun = true;
+            heat = 100;
+        }
+
+        if (heat <= 0)
+        {
+            heatStun = false;
+            heat = 0;
+        }
+
+        heatSlider.value = heat;
+
+        Debug.Log("heat " + heat);
+        Debug.Log("heat stun is " + heatStun);
     }
 
     void Shoot()
