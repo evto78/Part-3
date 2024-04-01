@@ -8,6 +8,8 @@ public class Turret : MonoBehaviour
     bool shooting = false;
 
     float heat = 0.0f;
+    float firerate = 0.2f;
+    float cooldown = 0;
 
     int hp = 0;
     int xp = 0;
@@ -28,11 +30,24 @@ public class Turret : MonoBehaviour
     void Update()
     {
         LookAtCursor();
+        if (Input.GetMouseButton(0) && !shooting && cooldown <= 0)
+        {
+            shooting = true;
+            cooldown = firerate;
+            Shoot();
+        }
+        cooldown -= Time.deltaTime;
+        if (cooldown < 0)
+        {
+            cooldown = 0;
+        }
+
+        shooting = false;
     }
 
     void Shoot()
     {
-
+        Instantiate(bullet, firePoint0.transform.position, firePoint0.transform.rotation);
     }
 
     void LookAtCursor()
