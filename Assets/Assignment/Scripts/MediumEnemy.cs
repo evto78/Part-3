@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class MediumEnemy : EnemyMain
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void Start()
     {
-        
+        base.Start();
+        SetSpeed(1);
+        SetHP(3);
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void Die()
     {
-        
+        Instantiate(small, transform.position, transform.rotation);
+        Destroy(gameObject);
     }
 }

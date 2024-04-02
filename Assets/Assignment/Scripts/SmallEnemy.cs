@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class SmallEnemy : EnemyMain
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void Start()
     {
-        
+        base.Start();
+        SetSpeed(2);
+        SetHP(1);
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void Die()
     {
-        
+        Destroy(gameObject);
     }
 }

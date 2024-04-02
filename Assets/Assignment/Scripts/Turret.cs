@@ -48,6 +48,11 @@ public class Turret : MonoBehaviour
         HeatChange();
 
         shooting = false;
+
+        if (hp <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     void HeatChange()
@@ -101,5 +106,14 @@ public class Turret : MonoBehaviour
         Vector2 mouseDir = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - (Vector2)transform.position;
         float mouseAngle = Mathf.Atan2(mouseDir.x, mouseDir.y) * Mathf.Rad2Deg;
         rb.rotation = -mouseAngle + 90f;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "enemy")
+        {
+            hp -= 1;
+            Destroy(collision.gameObject);
+        }
     }
 }

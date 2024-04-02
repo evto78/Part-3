@@ -1698,6 +1698,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 912535623}
+  - component: {fileID: 912535624}
   m_Layer: 0
   m_Name: spawner
   m_TagString: Untagged
@@ -1720,6 +1721,41 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &912535624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 912535622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4166e84f0f560d44f9c786db43c328de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  large: {fileID: 5494645021514018759, guid: 16240907b903aa0418b01f5cdc0a7d52, type: 3}
+  medium: {fileID: 5515376378939806993, guid: 9f407c2faa96fba4e8bb9bcdadaa5c52, type: 3}
+  small: {fileID: 8529897586724444276, guid: 15537041ec637df428b3ede4151b9d76, type: 3}
+  spawn1: {fileID: 1924314190}
+  spawn2: {fileID: 610352456}
+  spawn3: {fileID: 2131042607}
+  spawn4: {fileID: 1417826027}
+  spawn5: {fileID: 2043017231}
+  spawn6: {fileID: 723391542}
+  spawn7: {fileID: 237281566}
+  spawn8: {fileID: 406240160}
+  spawn9: {fileID: 856432825}
+  spawn10: {fileID: 696353752}
+  spawn11: {fileID: 1949062426}
+  spawn12: {fileID: 905170011}
+  spawn13: {fileID: 2082263423}
+  spawn14: {fileID: 1089708148}
+  spawn15: {fileID: 1779786109}
+  spawn16: {fileID: 1489124484}
+  spawn17: {fileID: 189199018}
+  spawn18: {fileID: 2097866958}
+  spawn19: {fileID: 1786446789}
+  spawn20: {fileID: 1494304987}
 --- !u!1 &922464188
 GameObject:
   m_ObjectHideFlags: 0
