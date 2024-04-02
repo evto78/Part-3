@@ -35,6 +35,7 @@ public class EnemyMain : MonoBehaviour
 
         if (hp <= 0)
         {
+            ScoreManager.UpdateScore(1);
             Die();
         }
     }
